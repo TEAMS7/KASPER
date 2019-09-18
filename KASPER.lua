@@ -10600,7 +10600,7 @@ dofile('KASPER.lua')
 end
 local filess = io.open("requfiles/serpent.lua","r")
 if not filess then
-os.execute('cd requfiles ;wget 'https://raw.githubusercontent.com/TEAMS7/KASPER/master/requfiles/serpent.lua') 
+os.execute('cd requfiles ;wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/requfiles/dkjson.lua') 
 dofile('KASPER.lua')  
 end
 local list = KASPERBOT:smembers(KASPER_ID.."usersbot")
