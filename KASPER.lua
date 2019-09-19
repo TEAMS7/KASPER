@@ -138,7 +138,7 @@ SUDO = tonumber(sudos.SUDO)
 sudo_users = {SUDO}
 SUDOUSERNAME = sudos.USERNAME
 KASPER_ID = sudos.token:match("(%d+)")  
-NAMEBOT = (KASPERBOT:get(KASPER_ID..'KASPER:name') or 'عراق')
+NAMEBOT = (KASPERBOT:get(KASPER_ID..'KASPER:name') or 'كاسبر')
 bot_id = sudos.token:match("(%d+)")  
 chaneel = sudos.token 
 plugins = {}
@@ -1766,7 +1766,7 @@ local pvstart = KASPERBOT:get(KASPER_ID.."pvstart")
 if pvstart then    
 KASPER_sendMsg(msg.sender_user_id_, 0, 1, ''..check_markdown(pvstart)..'', 1, "md")    
 else    
-KASPER_sendMsg(msg.sender_user_id_, msg.id_, 1, '\n📬* ⁞* تم ارسال رسالتك الى المطور\n*📛 ⁞* اشترك في قناة المطور \n*🚸 ⁞* [اضغط هنا للدخول الى قناة](t.me/BECIQ) \n', 1, "md")    
+KASPER_sendMsg(msg.sender_user_id_, msg.id_, 1, '\n🎖* ⁞* تم ارسال رسالتك الى المطور\n*📛 ⁞* اشترك في قناة المطور \n*🚸 ⁞* [اضغط هنا للدخول الى قناة](t.me/U22222) \n', 1, "md")    
 end     
 if not KASPERBOT:sismember(KASPER_ID.."usersbot",msg.chat_id_) then    
 KASPERBOT:sadd(KASPER_ID.."usersbot",msg.chat_id_)    
