@@ -9303,13 +9303,7 @@ KASPERBOT:set(KASPER_ID.."Comd:New:rt:user:"..msg.chat_id_..result.id_,text1[1])
 elseif KASPERrt == 'عضو' and is_vipgroup(msg) then
 sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🎖 ⁞ تم رفعه ('..text1[1]..') هنا\n',result.id_)   
 end
-else
-
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1,info, 1, 'md')
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text1[2]},py_username,nil) 
-end 
+ 
 if text and text:match('^تنزيل (.*) @(.*)') and is_vipgroup(msg) then 
 local text1 = {string.match(text, "^(تنزيل) (.*) @(.*)$")}
 function py_username(extra, result, success)   
@@ -9329,16 +9323,7 @@ KASPERBOT:srem(KASPER_ID..'modergroup'..msg.chat_id_,result.sender_user_id_)
 KASPERBOT:del(KASPER_ID.."Comd:New:rt:user:"..msg.chat_id_..result.id_)
 elseif KASPERrt == 'عضو' and is_vipgroup(msg) then
 sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🎖 ⁞ تم تنريله من ('..text1[1]..') هنا\n',result.id_)   
-end
-else
-
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1,info, 1, 'md')
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = text1[2]},py_username,nil) 
 end  
-
-
 
 if text == 'قفل التثبيت' and tonumber(msg.reply_to_message_id_) > 0 and is_owner(msg) then   
 tdcli_function ({ ID = "GetChannelFull",  channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  KASPERBOT:set(KASPER_ID..'pinned'..msg.chat_id_,data.pinned_message_id_)  end,nil)
