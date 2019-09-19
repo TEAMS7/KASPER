@@ -2139,8 +2139,8 @@ if text ==('المجموعات 📇') and is_devtaha(msg) then    local list = K
 if text == "تحديث السورس 🔱" and is_devtaha(msg) then  kasper_sendMsg(msg.chat_id_, msg.id_, 1, '♻ • جاري تحديث السورس • ♻', 1, 'md') 
 os.execute('rm -rf kasper.lua') 
 os.execute("rm -fr plugins_/help_rep.lua")
-os.execute('wget https://raw.githubusercontent.com/NOVAR1/kasper/master/kasper.lua') 
-os.execute('cd plugins_;wget https://raw.githubusercontent.com/NOVAR1/kasper/master/plugins_/help_rep.lua') 
+os.execute('wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/KASPER.lua') 
+os.execute('cd plugins_;wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/plugins_/help_rep.lua') 
 sleep(0.5) 
 kasper_sendMsg(msg.chat_id_, msg.id_, 1, '🚸*¦* تم تحديث ♻ السورس ✔ ', 1, 'md') 
 dofile('kasper.lua')  
@@ -4346,8 +4346,8 @@ if text == "تحديث السورس" and is_devtaha(msg) then
 kasper_sendMsg(msg.chat_id_, msg.id_, 1, '♻ • جاري تحديث السورس • ♻', 1, 'md') 
 os.execute('rm -rf kasper.lua') 
 os.execute("rm -fr plugins_/help_rep.lua")
-os.execute('wget https://raw.githubusercontent.com/NOVAR1/kasper/master/kasper.lua') 
-os.execute('cd plugins_;wget https://raw.githubusercontent.com/NOVAR1/kasper/master/plugins_/help_rep.lua') 
+os.execute('wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/KASPER.lua') 
+os.execute('cd plugins_;wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/plugins_/help_rep.lua') 
 sleep(0.5) 
 kasper_sendMsg(msg.chat_id_, msg.id_, 1, '🚸*¦* تم تحديث ♻ السورس ✔ ', 1, 'md') 
 dofile('kasper.lua')  
@@ -10614,21 +10614,21 @@ tdcli_function ({   ID = "GetMessage", chat_id_ = data.chat_id_,   message_id_ =
 elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then  
 local filess = io.open("plugins_/help_rep.lua","r")
 if not filess then
-os.execute('cd plugins_ ;wget https://raw.githubusercontent.com/NOVAR1/kasper/master/plugins_/help_rep.lua')
+os.execute('cd plugins_ ;wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/plugins_/help_rep.lua')
 end
 local filess = io.open("requfiles/JSON.lua","r")
 if not filess then
-os.execute('cd requfiles ;wget https://raw.githubusercontent.com/NOVAR1/NOVAR1/master/requfiles/JSON.lua') 
+os.execute('cd requfiles ;wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/requfiles/JSON.lua') 
 dofile('kasper.lua')  
 end
 local filess = io.open("requfiles/dkjson.lua","r")
 if not filess then
-os.execute('cd requfiles ;wget https://raw.githubusercontent.com/NOVAR1/NOVAR1/master/requfiles/dkjson.lua') 
+os.execute('cd requfiles ;wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/requfiles/dkjson.lua') 
 dofile('kasper.lua')  
 end
 local filess = io.open("requfiles/serpent.lua","r")
 if not filess then
-os.execute('cd requfiles ;wget https://raw.githubusercontent.com/NOVAR1/NOVAR1/master/requfiles/serpent.lua') 
+os.execute('cd requfiles ;wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/requfiles/serpent.lua') 
 dofile('kasper.lua')  
 end
 local list = KASPERBOT:smembers(DEVKASPER.."usersbot")
