@@ -9304,7 +9304,7 @@ elseif KASPERrt == 'عضو' and is_vipgroup(msg) then
 sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🎖 ⁞ تم رفعه ('..text1[1]..') هنا\n',result.id_)   
 end
 else
-info = '📌| المعرف غلط'
+
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1,info, 1, 'md')
 end
 end
