@@ -1695,7 +1695,7 @@ local keyboard = {
 {'مسح قائمه العام 🚷','مسح المميزين عام 🌟','مسح المطورين 👮'},
 {'ضع رد تواصل 💻','ضع كليشه المطور 🎐','ضع كليشه ستارت 📠'},
 {'تعطيل رساله الترحيب 📱','تفعيل رساله الترحيب 🎌','ضع عدد الاعضاء 📜'},
-{"حذف كليشه المطور 🀄","حذف كليشه ستارت 🃏","حذف رد التواصل 🔧"},
+{"حذف كليشه المطور 🀄","حذف كليشه ستارت 🃏","حذف رد التواصل 📌"},
 {"جلب رد التواصل 📚","جلب كليشه ستارت 📚"},
 {'المطورين 📑','المحظورين عام 📑','المميزين عام 📑'},
 {'الغاء ✖'}}
@@ -1977,7 +1977,7 @@ if text and text:match("^ضع كليشه المطور 🎐$") and is_devtaha(msg
 if text and text:match("^ضع كليشه ستارت 📠$") and is_devtaha(msg) then KASPERBOT:setex(KASPER_ID.."start:msgofstart" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 10000, true)  KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'📬* ⁞* ارسل لي النص الذي تريده ', 1, 'md') end 
 if text == 'تفعيل رساله الترحيب 🎌' and is_devtaha(msg) then local  taha = '*📛 ⁞*تم تفعيل رسالة ترحيب عند الاضافه  ✔' KASPER_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") KASPERBOT:del(KASPER_ID..'lock:klsh:add'..bot_id) end 
 if text == 'تعطيل رساله الترحيب 📱' and is_devtaha(msg) then taha = '*🚦 ⁞*تم تعطيل رسالة ترحيب عند الاضافه  ❌' KASPER_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") KASPERBOT:set(KASPER_ID..'lock:klsh:add'..bot_id,true) end
-if text == "حذف رد التواصل 🔧" and is_devtaha(msg) then  KASPERBOT:del(KASPER_ID.."pvstart") KASPER_sendMsg( msg.chat_id_, msg.id_, 1, '*📛 ⁞*تم حذف رد التوصل', 1, "md") end 
+if text == "حذف رد التواصل 📌" and is_devtaha(msg) then  KASPERBOT:del(KASPER_ID.."pvstart") KASPER_sendMsg( msg.chat_id_, msg.id_, 1, '*📛 ⁞*تم حذف رد التوصل', 1, "md") end 
 if text == "حذف كليشه ستارت 🃏" and is_devtaha(msg) then  KASPERBOT:del(KASPER_ID.."start:msgofstart1") KASPER_sendMsg( msg.chat_id_, msg.id_, 1, '*📛 ⁞*تم حذف كليشه ستارت', 1, "md") end 
 if text == "حذف كليشه المطور 🀄" and is_devtaha(msg) then  KASPERBOT:del(KASPER_ID.."dev") KASPER_sendMsg( msg.chat_id_, msg.id_, 1, '*📛 ⁞*تم حذف كليشه المطور', 1, "md") end 
 if text and text:match("^ضع عدد الاعضاء 📜$") and is_devtaha(msg) then  KASPERBOT:setex(KASPER_ID.."numadd:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 10000, true)  local t = '*📊 ⁞ ارسل لي العدد الان*'  KASPER_sendMsg(msg.chat_id_, msg.id_, 1,t, 1, 'md') end
