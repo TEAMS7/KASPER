@@ -8068,42 +8068,42 @@ end
 
 if text ==('تقييد') and is_mod(msg) or text ==('تقيد') and is_mod(msg) then 
 if msg.can_be_deleted_ == false then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚨 ⁞* انا لست ادمن يرجى رفعي والمحاوله مره اخره\n", 1, "md") 
+TIGER_sendMsg(msg.chat_id_, msg.id_, 1, "*❕ ⁞* انا لست ادمن يرجى رفعي والمحاوله مره اخره\n", 1, "md") 
 return false  end 
 function prom_reply(extra, result, success) 
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ عذرآ لأ أستطيع تقييد نفسي * ', 1, 'md')  
+TIGER_sendMsg(msg.chat_id_, msg.id_, 1, '*❕ ⁞ عذرآ لأ أستطيع تقييد نفسي * ', 1, 'md')  
 return false  end 
-if KASPER1(msg.chat_id_,result.sender_user_id_) then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ عذرآ لآ أستطيع تقييد ~⪼ ❪ '..get_mokforkick(msg.chat_id_,result.sender_user_id_)..' ❫ *\n', 1, 'md') 
+if TIGER1(msg.chat_id_,result.sender_user_id_) then 
+TIGER_sendMsg(msg.chat_id_, msg.id_, 1, '*❕ ⁞ عذرآ لآ أستطيع تقييد » ❪ '..get_mokforkick(msg.chat_id_,result.sender_user_id_)..' ❫ *\n', 1, 'md') 
 return false  end 
 tdcli_function ({
 ID = "GetUser",
 user_id_ = result.sender_user_id_
 },function(arg,data) 
-if not KASPERBOT:sismember(KASPER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) then
+if not TIGERBOT:sismember(TIGER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼ ❪ '..CatchName(data.first_name_,15)..' ❫\n📬 ⁞ تـم تقييده من الكروب\n✓'   
-KASPERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))   
+zo = '🚦 ⁞ العضــو » ❪ '..CatchName(data.first_name_,15)..' ❫\n⚜ ⁞ تـم تقييده من الكروب\n✓'   
+TIGERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))   
 HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.sender_user_id_.."") 
-KASPERBOT:sadd(KASPER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) 
+TIGERBOT:sadd(TIGER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) 
 else
-zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.sender_user_id_..'` ❫\n*🚸 ⁞* تـم تقييده من الكروب\n✓'   
-KASPERBOT:sadd(KASPER_ID..'mutes'..msg.chat_id_,result.sender_user_id_)   
+zo = '*🚦⁞* العضــو » ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي » ❪* '..result.sender_user_id_..' ❫\n*⚜ ⁞* تـم تقييده من الكروب\n✓'   
+HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.sender_user_id_.."") 
 seavusername(result.sender_user_id_) 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
+TIGER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
 end
 else
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n📬 ⁞ بالتاكيد تـم تقييده من الكروب\n✓'   
-KASPERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))   
+zo = '🚦 ⁞ العضــو » ❪ '..CatchName(data.first_name_,15)..' ❫\n⚜ ⁞ بالتاكيد تـم تقييده من الكروب\n✓'   
+TIGERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))   
 HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.sender_user_id_.."") 
-KASPERBOT:sadd(KASPER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) 
+TIGERBOT:sadd(TIGER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) 
 else
-zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.sender_user_id_..'` ❫\n*🎖 ⁞* بالتاكيد تـم تقييده من الكروب\n✓'   
-KASPERBOT:sadd(KASPER_ID..'mutes'..msg.chat_id_,result.sender_user_id_)   
+zo = '*🚦⁞* العضــو » ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي » ❪* '..result.sender_user_id_..' ❫\n*⚜ ⁞* بالتاكيد تـم تقييده من الكروب\n✓'   
+TIGERBOT:sadd(TIGER_ID..'mutes'..msg.chat_id_,result.sender_user_id_)   
 seavusername(result.sender_user_id_) 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
+TIGER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
 end
 end
 end,nil)   
@@ -8974,7 +8974,7 @@ elseif da.status_.ID == "ChatMemberStatusMember" then
 rtpa = 'عضو'
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then
-local zo = '🚦 ⁞ هاذا اني \n🎖 ⁞ رتبتي في الكروب ~⪼ ❪ {'..rtpa..'} ❫\n💥'
+local zo = '🚦 ⁞ هاذا اني \n⚜ ⁞ رتبتي في الكروب ~⪼ ❪ {'..rtpa..'} ❫\n💥'
 monsend(msg,msg.chat_id_,zo,result.sender_user_id_)   
 return false  end 
 local zo = '*💭 ⁞ رتبة، الپوت ~⪼ { '..get_rtpa(msg.chat_id_,result.sender_user_id_)..' }\n⚜ ⁞ رتبتةهہ، الكروپ ~⪼ { '..rtpa..' }*\n'
@@ -9065,7 +9065,7 @@ t = 'عضو مميز ⭐'
 else
 t = 'عضو 👶'
 end
-local zo = '\n🚦 ⁞ رتبة البوت ~⪼ ❲ {'..t..'} ❳\n⁞ رتبتة الكروب ~⪼ ❲ ❛'..rtpa..'❜ ❳\n💥'
+local zo = '\n🚦 ⁞ رتبة البوت ~⪼ ❲ {'..t..'} ❳\n⚜ ⁞ رتبتة الكروب ~⪼ ❲ ❛'..rtpa..'❜ ❳\n💥'
 monsend(msg,msg.chat_id_,zo,msg.sender_user_id_)   
 end,nil)
 end
