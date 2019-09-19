@@ -9078,27 +9078,27 @@ local zo = '\n🚦 ⁞ رتبة البوت ~⪼ ❲ {'..t..'} ❳\n⚜ ⁞ رت�
 monsend(msg,msg.chat_id_,zo,msg.sender_user_id_)   
 end,nil)
 end
-if text == 'تغير الايدي' and is_devtaha(msg) or text == 'تغيير الايدي' and is_devtaha(msg) then
+if text == 'تغير الايدي' and is_monsh(msg) or text == 'تغيير الايدي' and is_monsh(msg) then
 KASPERBOT:setex(KASPER_ID.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_,200,true)  
 local tahaid= [[
-*🚦 ⁞ اهلا عزيزي المطور 
-📬 ⁞ يمكنك استخدام الدوال الاتيه ↓
+*📮¦ اهلا عزيزي المطور 
+📬¦ يمكنك استخدام الدوال الاتيه ↓
  ٴ━━━━━━━━━━
-1• دالة طبع الايدي ~⪼* `IDGET`
-*2• دالة طبع المعرف ~⪼* `USERGET`
-*3• دالة طبع رتبة البوت ~⪼* `RTBGET`
-*4• دالة طبع رتبة الكروب ~⪼* `RTGGET`
-*5• دالة طبع تفاعلك ~⪼* `TFGET`
-*6• دالة طبع رسائلك ~⪼* `MSGGET`
-*7• دالة طبع صورك ~⪼* `PHOTOGET`
-*8• دالة طبع نقودك ~⪼* `NKOGET`
+1• دالة طبع الايدي »* `IDGET`
+*2• دالة طبع المعرف »* `USERGET`
+*3• دالة طبع رتبة البوت »* `RTBGET`
+*4• دالة طبع رتبة الكروب »* `RTGGET`
+*5• دالة طبع تفاعلك »* `TFGET`
+*6• دالة طبع رسائلك »* `MSGGET`
+*7• دالة طبع صورك »* `PHOTOGET`
+*8• دالة طبع نقودك »* `NKOGET`
 ]]
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1,tahaid, 1, 'md')
 return false  
 end 
-if text == 'مسح تغير الايدي' and is_devtaha(msg) or text == 'حذف تغير الايدي' and is_devtaha(msg) then
-KASPERBOT:del(KASPER_ID.."KLISH:ID")
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1,  '*🚦 ⁞ تم مسح كليشه الايدي *\n', 1, 'md')
+if text == 'مسح تغير الايدي' and is_monsh(msg) or text == 'حذف تغير الايدي' and is_monsh(msg) then
+KASPERBOT:del(KASPER_ID.."KLISH:ID"..msg.chat_id_)
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1,  '*📮¦ تم مسح كليشه الايدي *\n', 1, 'md')
 return false  
 end 
 if KASPERBOT:get(KASPER_ID.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) then 
