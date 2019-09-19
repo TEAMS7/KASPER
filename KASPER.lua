@@ -799,12 +799,12 @@ local function trigger_anti_spam(msg,type)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if type == 'kick' then 
 if data.username_ then
-taha = '\n*🚦 ⁞ العضــو ~⪼ ❪*[@'..data.username_..']*❫\n📬 ⁞ قام بالتكرار هنا وتم طرده *'  
+taha = '\n*🚦 ⁞ العضــو ~⪼ ❪*[@'..data.username_..']*❫\n⚜ ⁞ قام بالتكرار هنا وتم طرده *'  
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, taha, 1, "md")  
 kick(msg,msg.chat_id_,msg.sender_user_id_) 
 else
 kick(msg,msg.chat_id_,msg.sender_user_id_) 
-KASPERmonshn(msg.chat_id_, msg.sender_user_id_, msg.id_, '🚦 ⁞ العضــو ~⪼ ( '..CatchName(data.first_name_,20)..' )\n📬 ⁞ قام بالتكرار هنا وتم طرده \n' , 14, utf8.len(data.first_name_)) 
+KASPERmonshn(msg.chat_id_, msg.sender_user_id_, msg.id_, '🚦 ⁞ العضــو ~⪼ ( '..CatchName(data.first_name_,20)..' )\n⚜ ⁞ قام بالتكرار هنا وتم طرده \n' , 14, utf8.len(data.first_name_)) 
 end
 return false  
 end 
@@ -813,12 +813,12 @@ delete_msg(msg.chat_id_,{[0] = msg.id_})
 end 
 if type == 'keed' then
 if data.username_ then
-taha = '\n*🚦 ⁞ العضــو ~⪼ ❪*[@'..data.username_..']*❫\n📬 ⁞ قام بالتكرار هنا وتم تقييده *'  
+taha = '\n*🚦 ⁞ العضــو ~⪼ ❪*[@'..data.username_..']*❫\n⚜ ⁞ قام بالتكرار هنا وتم تقييده *'  
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, taha, 1, "md")  
 HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..msg.sender_user_id_.."") 
 KASPERBOT:sadd(KASPER_ID..'tedmembars'..msg.chat_id_,msg.sender_user_id_) 
 else
-KASPERmonshn(msg.chat_id_, msg.sender_user_id_, msg.id_, '🚦 ⁞ العضــو ~⪼ ( '..CatchName(data.first_name_,20)..' )\n📬 ⁞ قام بالتكرار هنا وتم تقييده \n' , 14, utf8.len(data.first_name_)) 
+KASPERmonshn(msg.chat_id_, msg.sender_user_id_, msg.id_, '🚦 ⁞ العضــو ~⪼ ( '..CatchName(data.first_name_,20)..' )\n⚜ ⁞ قام بالتكرار هنا وتم تقييده \n' , 14, utf8.len(data.first_name_)) 
 HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..msg.sender_user_id_.."") 
 KASPERBOT:sadd(KASPER_ID..'tedmembars'..msg.chat_id_,msg.sender_user_id_) 
 end
@@ -826,11 +826,11 @@ return false
 end  
 if type == 'mute' then
 if data.username_ then
-taha = '\n*🚦 ⁞ العضــو ~⪼ ❪*[@'..data.username_..']*❫\n📬 ⁞ قام بالتكرار هنا وتم كتمه *'  
+taha = '\n*🚦 ⁞ العضــو ~⪼ ❪*[@'..data.username_..']*❫\n⚜ ⁞ قام بالتكرار هنا وتم كتمه *'  
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, taha, 1, "md")  
 KASPERBOT:sadd(KASPER_ID..'mutes'..msg.chat_id_,msg.sender_user_id_) 
 else
-KASPERmonshn(msg.chat_id_, msg.sender_user_id_, msg.id_, '🚦 ⁞ العضــو ~⪼ ( '..CatchName(data.first_name_,20)..' )\n📬 ⁞ قام بالتكرار هنا وتم كتمه \n' , 14, utf8.len(data.first_name_))  
+KASPERmonshn(msg.chat_id_, msg.sender_user_id_, msg.id_, '🚦 ⁞ العضــو ~⪼ ( '..CatchName(data.first_name_,20)..' )\n⚜ ⁞ قام بالتكرار هنا وتم كتمه \n' , 14, utf8.len(data.first_name_))  
 KASPERBOT:sadd(KASPER_ID..'mutes'..msg.chat_id_,msg.sender_user_id_) 
 end
 return false  
@@ -1227,7 +1227,7 @@ KASPERBOT:incr(KASPER_ID..'add:mempar'..msg.chat_id_..':'..msg.sender_user_id_)
 end
 if KASPERBOT:get(KASPER_ID..'viewchannel'..msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID..'viewchannel'..msg.sender_user_id_)
 return false  end 
 if not msg.forward_info_ then 
@@ -1243,7 +1243,7 @@ return false end
 end  
 if KASPERBOT:get(KASPER_ID.."get:info:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."get:info:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."get:info:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -1294,7 +1294,7 @@ end,nil)
 end
 if KASPERBOT:get(KASPER_ID.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -1326,7 +1326,7 @@ end,nil)
 end
 if KASPERBOT:get(KASPER_ID.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -1336,7 +1336,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ تم تغيير رسالة �
 end
 if KASPERBOT:get(KASPER_ID.."get:link:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."get:link:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."get:link:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -1382,7 +1382,7 @@ getChannelFull(ch, taha, {chat_id=ch,msg_id=msg.id})
 end 
 if KASPERBOT:get(KASPER_ID..'namebot:witting'..msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID..'namebot:witting'..msg.sender_user_id_) 
 return false  end 
 KASPERBOT:del(KASPER_ID..'namebot:witting'..msg.sender_user_id_) 
@@ -1391,7 +1391,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*♻ ⁞* تم تغير اسم الب�
 end 
 if KASPERBOT:get(KASPER_ID.."welc:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."welc:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."welc:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -1401,7 +1401,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'\n📬* ⁞* تم وضع الترحيب
 end
 if KASPERBOT:get(KASPER_ID.."numadd:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."numadd:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."numadd:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -1410,7 +1410,7 @@ KASPERBOT:set(KASPER_ID..'setadd:bot'..bot_id,numadded)  KASPER_sendMsg(msg.chat
 end
 if KASPERBOT:get(KASPER_ID.."set:description" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."set:description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)
 return false  end 
 KASPERBOT:del(KASPER_ID.."set:description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
@@ -1421,7 +1421,7 @@ end
 
 if KASPERBOT:get(KASPER_ID.."link:group"..msg.chat_id_) == 'setlinkwai' and is_mod(msg) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."link:group" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 else  
 if text and text:match("(https://telegram.me/joinchat/%S+)") or text and text:match("(https://t.me/joinchat/%S+)") then     
@@ -1434,7 +1434,7 @@ end
 end
 if KASPERBOT:get(KASPER_ID.."bc:in:gropsfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الاذاعه بالتوجيه للمجموعات *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الاذاعه بالتوجيه للمجموعات *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."bc:in:gropsfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  end 
 if msg.forward_info_ then 
@@ -1449,13 +1449,13 @@ end
 end
 if KASPERBOT:get(KASPER_ID..'setphoto'..msg.chat_id_..':'..msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID..'setphoto'..msg.chat_id_..':'..msg.sender_user_id_) 
 return false  end 
 end
 if KASPERBOT:get(KASPER_ID.."bc:in:allfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الاذاعه بالتوجيه للكل *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الاذاعه بالتوجيه للكل *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."bc:in:allfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  end 
 if msg.forward_info_ then 
@@ -1478,7 +1478,7 @@ KASPERBOT:del(KASPER_ID.."bc:in:allfwd" .. msg.chat_id_ .. ":" .. msg.sender_use
 end
 if KASPERBOT:get(KASPER_ID.."bc:in:pvfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_,msg.id_ , 1, "*🚫 ⁞ تم الغاء الاذاعه بالتوجيه للخاص *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_,msg.id_ , 1, "*⚜ ⁞ تم الغاء الاذاعه بالتوجيه للخاص *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."bc:in:pvfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  end 
 if msg.forward_info_ then 
@@ -1493,7 +1493,7 @@ end
 end
 if KASPERBOT:get(KASPER_ID.."bc:in:grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الاذاعه للمجموعات *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الاذاعه للمجموعات *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."bc:in:grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 else 
 local gps = KASPERBOT:scard(KASPER_ID.."bot:gpsby:id") or 0 
@@ -1533,7 +1533,7 @@ end
 end
 if KASPERBOT:get(KASPER_ID.."bc:in:all" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then  
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then  
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الاذاعه للكل *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الاذاعه للكل *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."bc:in:all" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)  
 else  
 local gps = KASPERBOT:scard(KASPER_ID.."bot:gpsby:id") or 0  
@@ -1603,7 +1603,7 @@ end
 end
 if KASPERBOT:get(KASPER_ID.."bc:in:pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الاذاعه للمشتركين *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الاذاعه للمشتركين *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."bc:in:pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 else 
 local gps = KASPERBOT:scard(KASPER_ID.."usersbot") or 0 
@@ -1643,13 +1643,13 @@ end
 end
 if KASPERBOT:get(KASPER_ID.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 return false  end 
 local rules = msg.content_.text_ KASPERBOT:set(KASPER_ID.."rules:group" .. msg.chat_id_, rules) KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📛 ⁞*تم حفظ القوانين ✔",  1, "md") end  KASPERBOT:del(KASPER_ID.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 if KASPERBOT:get(KASPER_ID.."sudo:dev" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."sudo:dev" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."sudo:dev" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -1658,7 +1658,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'\n*📛 ⁞* تم وضع كليشه ا�
 end
 if KASPERBOT:get(KASPER_ID.."start:msgofstart" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."start:msgofstart" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."start:msgofstart" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
@@ -1669,7 +1669,7 @@ end
 
 if KASPERBOT:get(KASPER_ID.."sudo:pv" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") or text and text:match("^الغاء ✖$") then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."sudo:pv" .. msg.chat_id_ .. "" .. msg.sender_user_id_) 
 return false  end 
 KASPERBOT:del(KASPER_ID.."sudo:pv" .. msg.chat_id_ .. "" .. msg.sender_user_id_) 
@@ -1818,11 +1818,11 @@ if text =='الغاء الحظر' then
 tdcli_function ({ID = "GetUser",user_id_ = id_user},function(arg,data) 
 if KASPERBOT:sismember(KASPER_ID..'pv:ban'..msg.chat_id_,id_user) then
 if data.username_ == false then
-local text = '🚦 ⁞ العضــو ~⪼ ❪ '..CatchName(data.first_name_,15)..' ❫\n🚫 ⁞ تم الغاء حظره من التواصل\n✓'
+local text = '🚦 ⁞ العضــو ~⪼ ❪ '..CatchName(data.first_name_,15)..' ❫\n⚜ ⁞ تم الغاء حظره من التواصل\n✓'
 KASPERBOT:del('numlocktextpv'..bot_id..id_user)    KASPERBOT:srem(KASPER_ID..'pv:ban'..msg.chat_id_,id_user)
 KASPERmonshn(msg.chat_id_, id_user, msg.id_, text, 16, utf8.len(CatchName(data.first_name_,15)))  
 else
-zo = '*🚦 ⁞ العضــو ~⪼ ❪ *[@'..data.username_..'] ❫\n*🚫 ⁞ تم الغاء حظره من التواصل\n✓*'
+zo = '*🚦 ⁞ العضــو ~⪼ ❪ *[@'..data.username_..'] ❫\n*⚜ ⁞ تم الغاء حظره من التواصل\n✓*'
 KASPERBOT:del('numlocktextpv'..bot_id..id_user)    KASPERBOT:srem(KASPER_ID..'pv:ban'..msg.chat_id_,id_user)
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, "md") 
 end
@@ -1985,7 +1985,7 @@ if text == "جلب رد التواصل 📚" and is_devtaha(msg) then if KASPERB
 if text == "جلب كليشه ستارت 📚" and is_devtaha(msg) then  local start = KASPERBOT:get(KASPER_ID.."start:msgofstart1")  if start then KASPER_sendMsg(msg.chat_id_, msg.id_, 1,''..check_markdown(start)..'', 1, 'md') else KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'*🎭 ⁞ لم يتم وضع كليشه ستارت *\n', 1, 'md') end end
 if text == 'الاحصائيات 🔭' and is_devtaha(msg) then    local grall = KASPERBOT:scard(KASPER_ID.."botgps") or 0    local gradd = KASPERBOT:scard(KASPER_ID..'bot:gpsby:id') or 0    local uspv = KASPERBOT:scard(KASPER_ID.."usersbot") or 0    KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'\n*📬 ⁞ عدد المجموعات المفعله ~⪼ ❪'..gradd..'❫\n💥 ⁞ عدد المشتركين ~⪼ ❪'..uspv..'❫*\n✓', 1, 'md')   end
 if text=="اذاعه بالتوجيه 📬" and msg.reply_to_message_id_ == 0  and is_devtaha(msg) then   KASPERBOT:setex(KASPER_ID.."bc:in:gropsfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true)   KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞* ارسل لي التوجيه ليتم اذاعته للمجموعات\n✓", 1, "md")   end
-if text=="اذاعه خاص بالتوجيه 🔮" and msg.reply_to_message_id_ == 0  and is_devtaha(msg) then   KASPERBOT:setex(KASPER_ID.."bc:in:pvfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true)   KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞* ارسل لي التوجيه ليتم اذاعته للخاص\n✓", 1, "md")   end
+if text=="اذاعه خاص بالتوجيه 🔖" and msg.reply_to_message_id_ == 0  and is_devtaha(msg) then   KASPERBOT:setex(KASPER_ID.."bc:in:pvfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true)   KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞* ارسل لي التوجيه ليتم اذاعته للخاص\n✓", 1, "md")   end
 if text=="اذاعه عام بالتوجيه 💾" and msg.reply_to_message_id_ == 0  and is_devtaha(msg) then   KASPERBOT:setex(KASPER_ID.."bc:in:allfwd" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true)   KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞* ارسل لي التوجيه ليتم اذاعته للكل\n✓", 1, "md")   end
 if text=="اذاعه 📡" and msg.reply_to_message_id_ == 0  and is_devtaha(msg) then   KASPERBOT:setex(KASPER_ID.."bc:in:grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true)   KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞* ارسل لي سواء كان ~⪼ ❪ رساله , صوره , متحركه , ملصق  ❫ للاذاعه الى المجموعات\n✓", 1, "md")   end
 if text=="اذاعه للكل 📡" and msg.reply_to_message_id_ == 0  and is_devtaha(msg) then   KASPERBOT:setex(KASPER_ID.."bc:in:all" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true)   KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞* ارسل لي سواء كان ~⪼ ❪ رساله , صوره , متحركه , ملصق  ❫ للاذاعه الى الكل\n✓", 1, "md")   end
@@ -2603,370 +2603,370 @@ end
 end 
 if text == 'قفل الدردشه' and msg.reply_to_message_id_ == 0 and is_monsh(msg) then 
 KASPERBOT:set(KASPER_ID.."lock:text"..msg.chat_id_,true) 
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الدردشه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الدردشه \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الاضافه' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID.."lock:AddMempar"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل اضافة الاعضاء \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل اضافة الاعضاء \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الدخول' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID.."lock:Join"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل دخول الاعضاء \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل دخول الاعضاء \n✓',msg.sender_user_id_)  
 elseif text == 'قفل البوتات' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID.."lock:Bot:kick"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل البوتات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل البوتات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل البوتات بالطرد' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID.."lock:Bot:kick"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل البوتات بالطرد\n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل البوتات بالطرد\n✓',msg.sender_user_id_)  
 elseif text == 'قفل البوتات بالتقييد' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID.."lock:Bot:kick"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل البوتات بالتقييد\n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل البوتات بالتقييد\n✓',msg.sender_user_id_)  
 elseif text == 'قفل اشعارات البوتات' and msg.reply_to_message_id_ == 0 and is_mod(msg) then  
 KASPERBOT:set(KASPER_ID..'lock:tagservrbot'..msg.chat_id_,true)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل اشعارات البوتات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل اشعارات البوتات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الاشعارات' and msg.reply_to_message_id_ == 0 and is_mod(msg) then  
 KASPERBOT:set(KASPER_ID..'lock:tagservr'..msg.chat_id_,true)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاشعارات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاشعارات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التثبيت' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID.."lockpin"..msg.chat_id_, true) 
 KASPERBOT:sadd(KASPER_ID..'lock:pin',msg.chat_id_) tdcli_function ({ ID = "GetChannelFull",  channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  KASPERBOT:set(KASPER_ID..'pinned'..msg.chat_id_,data.pinned_message_id_)  end,nil)
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التثبيت هنا \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التثبيت هنا \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التعديل' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID..'lock:edit'..msg.chat_id_,true) 
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل تعديل الكلمات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل تعديل الكلمات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل تعديل الميديا' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:set(KASPER_ID..'lock:edit:media'..msg.chat_id_,true) 
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل تعديل الميديا \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل تعديل الميديا \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الكل' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 add_lockal(msg.chat_id_)
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل جميع الاوامر \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل جميع الاوامر \n✓',msg.sender_user_id_)  
 end
 if text == 'فتح الاضافه' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID.."lock:AddMempar"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح اضافة الاعضاء \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح اضافة الاعضاء \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الدردشه' and msg.reply_to_message_id_ == 0 and is_monsh(msg) then 
 KASPERBOT:del(KASPER_ID.."lock:text"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الدردشه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الدردشه \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الدخول' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID.."lock:Join"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح دخول الاعضاء \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح دخول الاعضاء \n✓',msg.sender_user_id_)  
 elseif text == 'فتح البوتات' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID.."lock:Bot:kick"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح البوتات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح البوتات \n✓',msg.sender_user_id_)  
 elseif text == 'فتح البوتات بالطرد' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID.."lock:Bot:kick"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح البوتات بالطرد\n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح البوتات بالطرد\n✓',msg.sender_user_id_)  
 elseif text == 'فتح البوتات بالتقييد' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID.."lock:Bot:kick"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح البوتات بالتقييد\n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح البوتات بالتقييد\n✓',msg.sender_user_id_)  
 elseif text == 'فتح اشعارات البوتات' and msg.reply_to_message_id_ == 0 and is_mod(msg) then  
 KASPERBOT:del(KASPER_ID..'lock:tagservrbot'..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح اشعارات البوتات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح اشعارات البوتات \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الاشعارات' and msg.reply_to_message_id_ == 0 and is_mod(msg) then  
 KASPERBOT:del(KASPER_ID..'lock:tagservr'..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح الاشعارات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح الاشعارات \n✓',msg.sender_user_id_)  
 elseif text == 'فتح التثبيت' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID.."lockpin"..msg.chat_id_)  KASPERBOT:srem(KASPER_ID..'lock:pin',msg.chat_id_)
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح التثبيت هنا \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح التثبيت هنا \n✓',msg.sender_user_id_)  
 elseif text == 'فتح التعديل' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID..'lock:edit'..msg.chat_id_) 
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح تعديل الكلمات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح تعديل الكلمات \n✓',msg.sender_user_id_)  
 elseif text == 'فتح تعديل الميديا' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 KASPERBOT:del(KASPER_ID..'lock:edit:media'..msg.chat_id_) 
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح تعديل الميديا \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح تعديل الميديا \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الكل' and msg.reply_to_message_id_ == 0 and is_mod(msg) then 
 rem_lockal(msg.chat_id_) 
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح جميع الاوامر \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فـتح جميع الاوامر \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الروابط' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Link"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الروابط بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Link"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الروابط بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Link"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الروابط بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Link"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الروابط بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الروابط' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Link"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الروابط \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الروابط \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل المعرفات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:user:name"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل المعرفات بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:user:name"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل المعرفات بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:user:name"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل المعرفات بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:user:name"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المعرفات بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح المعرفات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:user:name"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n?? ⁞ تـم فتح المعرفات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n?? ⁞ تـم فتح المعرفات \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل التاك' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:hashtak"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التاك بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:hashtak"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التاك بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:hashtak"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التاك بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:hashtak"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التاك بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح التاك' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:hashtak"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح التاك \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح التاك \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الشارحه' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Cmd"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الشارحه بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Cmd"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الشارحه بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Cmd"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الشارحه بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Cmd"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الشارحه بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الشارحه' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Cmd"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الشارحه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الشارحه \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الصور' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Photo"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الصور بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Photo"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الصور بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Photo"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الصور بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Photo"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصور بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الصور' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Photo"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الصور \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الصور \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الفيديو' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Video"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الفيديو بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Video"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الفيديو بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Video"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الفيديو بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Video"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الفيديو بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الفيديو' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Video"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الفيديو \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الفيديو \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل المتحركه' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Animation"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه \n✓',msg.sender_user_id_)  
 elseif text == 'قفل المتحركه بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Animation"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل المتحركه بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Animation"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل المتحركه بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Animation"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل المتحركه بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح المتحركه' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Animation"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح المتحركه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح المتحركه \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الالعاب' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:geam"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الالعاب بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:geam"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الالعاب بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:geam"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الالعاب بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:geam"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الالعاب بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الالعاب' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:geam"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الالعاب \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الالعاب \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الاغاني' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Audio"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الاغاني بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Audio"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الاغاني بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Audio"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الاغاني بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Audio"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الاغاني بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الاغاني' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Audio"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الاغاني \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الاغاني \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الصوت' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:vico"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الصوت بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:vico"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الصوت بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:vico"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الصوت بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:vico"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الصوت بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الصوت' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:vico"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الصوت \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الصوت \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الكيبورد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Keyboard"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الكيبورد بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Keyboard"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الكيبورد بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Keyboard"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الكيبورد بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Keyboard"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكيبورد بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الكيبورد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Keyboard"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الكيبورد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الكيبورد \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الملصقات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Sticker"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الملصقات بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Sticker"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الملصقات بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Sticker"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الملصقات بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Sticker"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملصقات بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الملصقات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Sticker"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الملصقات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الملصقات \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل التوجيه' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:forward"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التوجيه بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:forward"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التوجيه بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:forward"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل التوجيه بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:forward"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل التوجيه بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح التوجيه' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:forward"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح التوجيه \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح التوجيه \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الملفات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Document"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الملفات بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Document"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الملفات بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Document"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الملفات بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Document"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الملفات بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الملفات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Document"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الملفات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الملفات \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل السيلفي' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Unsupported"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي \n✓',msg.sender_user_id_)  
 elseif text == 'قفل السيلفي بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Unsupported"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل السيلفي بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Unsupported"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل السيلفي بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Unsupported"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل السيلفي بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح السيلفي' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Unsupported"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح السيلفي \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح السيلفي \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الماركداون' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Markdaun"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الماركداون بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Markdaun"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الماركداون بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Markdaun"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الماركداون بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Markdaun"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الماركداون بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الماركداون' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Markdaun"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الماركداون \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الماركداون \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الجهات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Contact"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الجهات بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Contact"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الجهات بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Contact"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الجهات بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Contact"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الجهات بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الجهات' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Contact"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الجهات \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الجهات \n✓',msg.sender_user_id_)  
 end
 if text == 'قفل الكلايش' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Spam"..msg.chat_id_,'del')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الكلايش بالتقييد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Spam"..msg.chat_id_,'ked')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش بالتقييد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش بالتقييد \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الكلايش بالكتم' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Spam"..msg.chat_id_,'ktm')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش بالكتم \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش بالكتم \n✓',msg.sender_user_id_)  
 elseif text == 'قفل الكلايش بالطرد' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:set(KASPER_ID.."lock:Spam"..msg.chat_id_,'kick')  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش بالطرد \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم قفـل الكلايش بالطرد \n✓',msg.sender_user_id_)  
 elseif text == 'فتح الكلايش' and is_mod(msg) and msg.reply_to_message_id_ == 0 then 
 KASPERBOT:del(KASPER_ID.."lock:Spam"..msg.chat_id_)  
-monsend(msg,msg.chat_id_,'💥 ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الكلايش \n✓',msg.sender_user_id_)  
+monsend(msg,msg.chat_id_,'⚜ ⁞ اهــلا عـزيـزي {'..get_rtba(msg)..'} ✓\n🚦 ⁞ تـم فتح الكلايش \n✓',msg.sender_user_id_)  
 end
 if text == "حذف الصوره" and is_mod(msg) then 
 deleteChatPhoto(msg.chat_id_) 
-KASPER_sendMsg(msg.chat_id_, msg.id_,1, '*📬 ⁞* تم حذف صورة المجموعه \n',1,'md') 
+KASPER_sendMsg(msg.chat_id_, msg.id_,1, '*🚦 ⁞* تم حذف صورة المجموعه \n',1,'md') 
 end
 if text and text:match("^ضع وصف$") and is_mod(msg) then  
 KASPERBOT:setex(KASPER_ID.."set:description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 10000, true)  
@@ -2976,7 +2976,7 @@ end
 if text and text:match("^ضع ترحيب$") and is_mod(msg) then  
 KASPERBOT:setex(KASPER_ID.."welc:bot" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 10000, true)  
 local t = '*📃 ⁞* ارسل النص الذي تريده '  
-local tt = '\n*📬 ⁞* ايضا يمكنك وضع \n*📛 ⁞* دالة طباعه الاسم `name` \n*📛 ⁞* ودالة طباعه اسم المجموعه `ngp`'
+local tt = '\n*⚜ ⁞* ايضا يمكنك وضع \n*📛 ⁞* دالة طباعه الاسم `name` \n*📛 ⁞* ودالة طباعه اسم المجموعه `ngp`'
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1,t..tt, 1, 'md') 
 end
 if text and text == 'تغير كليشه الترحيب' and is_devtaha(msg)  then    
@@ -2987,7 +2987,7 @@ if text then
 local rep = KASPERBOT:get("addreply1:"..msg.sender_user_id_..bot_id)   
 if rep == 'rep' then    
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del("addreply1:"..msg.sender_user_id_..bot_id)   
 return false  end 
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📷 ⁞ ارسل لي صورة الترحيب *\n", 1, 'md')   
@@ -3066,14 +3066,14 @@ if text then
 local tsssst = KASPERBOT:get(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == 'rep' then   
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_)  
 return false  end 
 if KASPERBOT:sismember(KASPER_ID..'rep:media'..msg.chat_id_,text) then
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞ لقد تم اضافة رد بهاذه الكلمه \n📬 ⁞ ارسل كلمه اخرى او ارسل الغاء*\n✓\n", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞ لقد تم اضافة رد بهاذه الكلمه \n⚜ ⁞ ارسل كلمه اخرى او ارسل الغاء*\n✓\n", 1, 'md')  
 else
 media = '{ متحركه ‹› ملصق ‹› صوره ‹› اغنيه ‹› بصمه ‹› ملف ‹› فيديو }'
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📬 ⁞ حسنآ ارسل الرد الان\n📤 ⁞ يمكنك ارسال الرد ~⪼ "..media.."*\n✓", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚠️ ⁞ حسنآ ارسل الرد الان\n📤 ⁞ يمكنك ارسال الرد ~⪼ "..media.."*\n✓", 1, 'md')  
 KASPERBOT:set(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_,"repp")  
 KASPERBOT:set(KASPER_ID.."addreply2:"..msg.sender_user_id_..msg.chat_id_, text)  
 KASPERBOT:sadd(KASPER_ID.."rep:media"..msg.chat_id_,text)  
@@ -3081,19 +3081,19 @@ end
 return false  end  
 end  
 if text and text == 'حذف رد بالرد' and  is_monsh(msg) then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*📬 ⁞ حسنآ ارسل لي الكلمه الان *\n💥', 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*✉ ⁞ حسنآ ارسل لي الكلمه الان *\n💥', 1, 'md')  
 KASPERBOT:set(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
 local test = KASPERBOT:get(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_)  
 if test and test == 'reppp' then   
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_)  
 return false  end 
 if not KASPERBOT:sismember(KASPER_ID..'rep:media'..msg.chat_id_,text) then
 KASPERBOT:del(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_)  
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📛 ⁞ الكلمه ~⪼ {* ["..text.."] *} ✓\n⚡ ⁞ لا يوجد رد بهاذه الكلمه*\n💥\n", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📛 ⁞ الكلمه ~⪼ {* ["..text.."] *} ✓\n🎗 ⁞ لا يوجد رد بهاذه الكلمه*\n💥\n", 1, 'md')  
 KASPERBOT:del("addreply1:gif"..text..msg.chat_id_)  
 KASPERBOT:del("addreply1:vico"..text..msg.chat_id_)  
 KASPERBOT:del("addreply1:stekr"..text..msg.chat_id_)  
@@ -3138,7 +3138,7 @@ what = 'صوره 🎆'
 elseif msg.content_.video_ then  
 what = 'فيديو 📹'
 end
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*📌 ⁞ تم حفظ الردَ الخاص پك\n📨 ⁞ نو؏ الرد — { '..what..' }*', 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*⚜ ⁞ تم حفظ الردَ الخاص پك\n📮 ⁞ نو؏ الرد — { '..what..' }*', 1, 'md')  
 KASPERBOT:del(KASPER_ID.."addreply1:"..msg.sender_user_id_..msg.chat_id_)  
 local test = KASPERBOT:get(KASPER_ID.."addreply2:"..msg.sender_user_id_..msg.chat_id_)  
 if msg.content_.sticker_ then   
@@ -3244,7 +3244,7 @@ KASPERBOT:del(KASPER_ID.."addreply1:document:gp"..v..msg.chat_id_)
 KASPERBOT:del(KASPER_ID.."addreply1:audio:gp"..v..msg.chat_id_)
 KASPERBOT:srem(KASPER_ID.."repmedia"..msg.chat_id_,v)  
 end  
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📛 ⁞* المجموعه تحتوي على *{"..taha.."}* رد \n*🚦 ⁞* تم مسح الردود جميعها \n", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞* المجموعه تحتوي على *{"..taha.."}* رد \n*🚦 ⁞* تم مسح الردود جميعها \n", 1, 'md')  
 end
 if  text == "قائمه الردود" and is_monsh(msg) then  
 local list = KASPERBOT:smembers(KASPER_ID.."repmedia"..msg.chat_id_)  
@@ -3270,12 +3270,12 @@ end
 t = t..'*'..k..'• *❨`'..v..'`❩ *~⪼ {'..taha..'}*\n'    
 end  
 if #list == 0 then  
-t = "*📬 ⁞* لا يوجد ردود مضافه"  
+t = "*📛 ⁞* لا يوجد ردود مضافه"  
 end  
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, t, 1, 'md')  
 end  
 if text and text == 'اضف رد' and is_monsh(msg)  then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*📬 ⁞ حسنآ ارسل لي الكلمه الان *\n', 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*✉ ⁞ حسنآ ارسل لي الكلمه الان *\n', 1, 'md')  
 KASPERBOT:set(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
@@ -3283,14 +3283,14 @@ if text then
 local tsssst = KASPERBOT:get(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == 'rep' then   
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.chat_id_)  
 return false  end 
 if KASPERBOT:sismember(KASPER_ID..'repmedia'..msg.chat_id_,text) then
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞ لقد تم اضافة رد بهاذه الكلمه \n📬 ⁞ ارسل كلمه اخرى او ارسل الغاء*\n✓\n", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞ لقد تم اضافة رد بهاذه الكلمه \n🚸 ⁞ ارسل كلمه اخرى او ارسل الغاء*\n✓\n", 1, 'md')  
 else
 media = '{ متحركه ‹› ملصق ‹› صوره ‹› اغنيه ‹› بصمه ‹› ملف ‹› فيديو }'
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📬 ⁞ حسنآ ارسل الرد الان\n📤 ⁞ يمكنك ارسال الرد ~⪼ "..media.."*\n✓", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ حسنآ ارسل الرد الان\n📤 ⁞ يمكنك ارسال الرد ~⪼ "..media.."*\n✓", 1, 'md')  
 KASPERBOT:set(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.chat_id_,"repp")  
 KASPERBOT:set(KASPER_ID.."add:reply2"..msg.sender_user_id_..msg.chat_id_, text)  
 KASPERBOT:sadd(KASPER_ID.."repmedia"..msg.chat_id_,text)  
@@ -3298,7 +3298,7 @@ end
 return false  end  
 end
 if text == 'حذف رد' and is_monsh(msg) then   
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*📬 ⁞ حسنآ ارسل لي الكلمه الان *\n', 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*⚜ ⁞ حسنآ ارسل لي الكلمه الان *\n', 1, 'md')  
 KASPERBOT:set(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
@@ -3306,7 +3306,7 @@ local test = KASPERBOT:get(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.cha
 if test and test == 'reppp' then   
 if not KASPERBOT:sismember(KASPER_ID..'repmedia'..msg.chat_id_,text) then
 KASPERBOT:del(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.chat_id_)
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📛 ⁞ الكلمه ~⪼ {* ["..text.."] *} ✓\n⚡ ⁞ لا يوجد رد بهاذه الكلمه*\n💥\n", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ الكلمه ~⪼ {* ["..text.."] *} ✓\n⚠️ ⁞ لا يوجد رد بهاذه الكلمه*\n💥\n", 1, 'md')  
 KASPERBOT:del("add:reply1:gif"..text..msg.chat_id_)  
 KASPERBOT:del("add:reply1:vico"..text..msg.chat_id_)  
 KASPERBOT:del("add:reply1:stekr"..text..msg.chat_id_)  
@@ -3352,7 +3352,7 @@ what = 'صوره 🎆'
 elseif msg.content_.video_ then  
 what = 'فيديو 📹'
 end
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*📌 ⁞ تم حفظ الردَ الخاص پك\n📨 ⁞ نو؏ الرد — { '..what..' }*', 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*⚠️ ⁞ تم حفظ الردَ الخاص پك\n🚸 ⁞ نو؏ الرد — { '..what..' }*', 1, 'md')  
 KASPERBOT:del(KASPER_ID.."add:reply1"..msg.sender_user_id_..msg.chat_id_)  
 local test = KASPERBOT:get(KASPER_ID.."add:reply2"..msg.sender_user_id_..msg.chat_id_)  
 if msg.content_.sticker_ then   
@@ -3503,26 +3503,26 @@ end
 t = t..'*'..k..'• *❨`'..v..'`❩ *~⪼ {'..taha..'}*\n'    
 end    
 if #list == 0 then    
-t = "*📬 ⁞* لا يوجد ردود مضافه"    
+t = "*📛 ⁞* لا يوجد ردود مضافه"    
 end    
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, t, 1, 'md')    
 end
 if text and text == 'اضف رد بالرد عام' and is_devtaha(msg)  then     
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*📬 ⁞ حسنآ ارسل لي الكلمه الان *\n💥', 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*✉ ⁞ حسنآ ارسل لي الكلمه الان *\n💥', 1, 'md')  
 KASPERBOT:set(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id,'yes')    
 return false    end      
 if text then     
 local tt = KASPERBOT:get(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id)    
 if tt == 'yes' then     
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id)    
 return false  end 
 if KASPERBOT:sismember(KASPER_ID.."rep:media:all:rd"..bot_id,text) then
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞ لقد تم اضافة رد بهاذه الكلمه \n📬 ⁞ ارسل كلمه اخرى او ارسل الغاء*\n✓\n", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚦 ⁞ لقد تم اضافة رد بهاذه الكلمه \n⚜ ⁞ ارسل كلمه اخرى او ارسل الغاء*\n✓\n", 1, 'md')  
 else
 media = '{ متحركه ‹› ملصق ‹› صوره ‹› اغنيه ‹› بصمه ‹› ملف ‹› فيديو }'
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📬 ⁞ حسنآ ارسل الرد الان\n📤 ⁞ يمكنك ارسال الرد ~⪼ "..media.."*\n✓", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ حسنآ ارسل الرد الان\n📤 ⁞ يمكنك ارسال الرد ~⪼ "..media.."*\n✓", 1, 'md')  
 KASPERBOT:set(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id,'yes1')    
 KASPERBOT:set(KASPER_ID.."addreply2:"..msg.sender_user_id_..bot_id, text)    
 KASPERBOT:sadd(KASPER_ID.."rep:media:all:rd"..bot_id,text)    
@@ -3530,7 +3530,7 @@ end
 return false    end    
 end
 if text and text == 'حذف رد بالرد عام' and  is_devtaha(msg) then     
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*📬 ⁞ حسنآ ارسل لي الكلمه الان *\n💥', 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*✉ ⁞ حسنآ ارسل لي الكلمه الان *\n💥', 1, 'md')  
 KASPERBOT:set(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id,'yes11')    
 return false    end    
 --للكل بالرد
@@ -3538,7 +3538,7 @@ if text then
 local test = KASPERBOT:get(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id)    
 if test and test == 'yes11' then     
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id)    
 return false  end 
 if not KASPERBOT:sismember(KASPER_ID..'rep:media:all:rd'..bot_id,text) then
@@ -3554,7 +3554,7 @@ KASPERBOT:del("all:addreply1:document:gp"..text..bot_id)
 KASPERBOT:del("all:addreply1:audio:gp"..text..bot_id)
 KASPERBOT:del("rep:media:all:rd"..bot_id,text)    
 else
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📌 ⁞ الكلمه ~⪼ {* ["..text.."] *} 🍂\n💢 ⁞ تم حذفها من قائمة الردود *\n💥\n", 1, 'md')  
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*📮 ⁞ الكلمه ~⪼ {* ["..text.."] *} 🍂\n⚜ ⁞ تم حذفها من قائمة الردود *\n💥\n", 1, 'md')  
 KASPERBOT:del(KASPER_ID.."add:repallt:rd"..msg.sender_user_id_..bot_id)    
 KASPERBOT:del(KASPER_ID.."add:repallt:gif:all:rd"..text..bot_id)    
 KASPERBOT:del(KASPER_ID.."add:rep:tvico:all:rd"..text..bot_id)    
@@ -3761,7 +3761,7 @@ if text then
 local tt = KASPERBOT:get(KASPER_ID.."add:repallt"..msg.sender_user_id_..bot_id)    
 if tt == 'yes' then     
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."add:repallt"..msg.sender_user_id_..bot_id)    
 return false  end 
 if KASPERBOT:sismember(KASPER_ID.."rep:media:all"..bot_id,text) then
@@ -3783,7 +3783,7 @@ if text then
 local test = KASPERBOT:get(KASPER_ID.."add:repallt"..msg.sender_user_id_..bot_id)    
 if test and test == 'yes11' then   
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."add:repallt"..msg.sender_user_id_..bot_id)    
 return false  end   
 if not KASPERBOT:sismember(KASPER_ID..'rep:media:all'..bot_id,text) then
@@ -4071,7 +4071,7 @@ end
 if KASPERBOT:get(KASPER_ID.."bc:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
 KASPERBOT:del(KASPER_ID..'id:gp'..msg.chat_id_)  
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."bc:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
 KASPERBOT:del(KASPER_ID.."bc:gp" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
@@ -4294,7 +4294,7 @@ end
 return false  end
 if kk.id_ then  
 local msgss = tonumber(KASPERBOT:get(KASPER_ID..'user:messages:'..msg.chat_id_..':'..kk.id_) or 0)  
-if tonumber(kk.id_) == tonumber(373906612) then
+if tonumber(kk.id_) == tonumber(267308044) then
 t = 'مطور السورس'
 elseif tonumber(kk.id_) == tonumber(bot_id) then
 t = 'هاذا بوت'
@@ -4379,7 +4379,7 @@ end
 if text and text:match('كشف (%d+)') then 
 local iduser = text:match('كشف (%d+)')  
 local msgss = tonumber(KASPERBOT:get(KASPER_ID..'user:messages:'..msg.chat_id_..':'..iduser) or 0)  
-if tonumber(iduser) == tonumber(373906612) then
+if tonumber(iduser) == tonumber(267308044) then
 t = 'مطور السورس'
 elseif tonumber(iduser) == tonumber(bot_id) then
 t = 'هاذا البوت'
@@ -4484,7 +4484,7 @@ end
 if text ==("كشف") and msg.reply_to_message_id_ ~= 0 then  
 function id_by_reply(extra, result, success) 
 local msgss = tonumber(KASPERBOT:get(KASPER_ID..'user:messages:'..msg.chat_id_..':'..result.sender_user_id_) or 0)  
-if tonumber(result.sender_user_id_) == tonumber(373906612) then
+if tonumber(result.sender_user_id_) == tonumber(267308044) then
 t = 'مطور السورس'
 elseif tonumber(result.sender_user_id_) == tonumber(bot_id) then
 t = 'هاذا البوت'
@@ -4591,7 +4591,7 @@ if not text:find('@') then
 function mention(extra, tes, success)
 if tes.content_.entities_[0].user_id_ then  
 local msgss = tonumber(KASPERBOT:get(KASPER_ID..'user:messages:'..msg.chat_id_..':'..tes.content_.entities_[0].user_id_) or 0)  
-if tonumber(tes.content_.entities_[0].user_id_) == tonumber(373906612) then
+if tonumber(tes.content_.entities_[0].user_id_) == tonumber(267308044) then
 t = 'مطور السورس'
 elseif tonumber(tes.content_.entities_[0].user_id_) == tonumber(bot_id) then
 t = 'هاذا بوت'
@@ -6888,7 +6888,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ انا لست ادمن في 
 return false  end
 if KASPERBOT:sismember(KASPER_ID..'KASPER:baned'..msg.chat_id_,result.sender_user_id_) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء حظره\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء حظره\n✓'   
 KASPERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 KASPERBOT:srem(KASPER_ID..'KASPER:baned'..msg.chat_id_,result.sender_user_id_)   
 else
@@ -6936,7 +6936,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ انا لست ادمن في 
 return false  end
 if KASPERBOT:sismember(KASPER_ID..'KASPER:baned'..msg.chat_id_,user) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء حظره\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء حظره\n✓'   
 KASPERmonshn(msg.chat_id_, user, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 KASPERBOT:srem(KASPER_ID..'KASPER:baned'..msg.chat_id_,user)   
 else
@@ -7355,7 +7355,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ انا لست ادمن في 
 return false  end
 if KASPERBOT:sismember(KASPER_ID..'KASPER:gbaned',result.sender_user_id_) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء حظره عام\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء حظره عام\n✓'   
 KASPERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 KASPERBOT:srem(KASPER_ID..'KASPER:gbaned',result.sender_user_id_)   
 else
@@ -7401,7 +7401,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ انا لست ادمن في 
 return false  end
 if KASPERBOT:sismember(KASPER_ID..'KASPER:gbaned',user) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء حظره عام\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء حظره عام\n✓'   
 KASPERmonshn(msg.chat_id_, user, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 KASPERBOT:srem(KASPER_ID..'KASPER:gbaned',user)   
 else
@@ -7596,21 +7596,21 @@ user_id_ = result.sender_user_id_
 },function(arg,data) 
 if KASPERBOT:sismember(KASPER_ID..'mutes'..msg.chat_id_,result.sender_user_id_) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء كتمه\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء كتمه\n✓'   
 KASPERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 KASPERBOT:srem(KASPER_ID..'mutes'..msg.chat_id_,result.sender_user_id_)   
 else
-zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.sender_user_id_..'` ❫\n*🚫 ⁞* تم الغاء كتمه\n✓'   
+zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.sender_user_id_..'` ❫\n*⚜ ⁞* تم الغاء كتمه\n✓'   
 KASPERBOT:srem(KASPER_ID..'mutes'..msg.chat_id_,result.sender_user_id_)   
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
 end
 else
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ بالتاكيد تم الغاء كتمه\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ بالتاكيد تم الغاء كتمه\n✓'   
 KASPERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 KASPERBOT:srem(KASPER_ID..'mutes'..msg.chat_id_,result.sender_user_id_)   
 else
-zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.sender_user_id_..'` ❫\n*🚫 ⁞* بالتاكيد تم الغاء كتمه\n✓'   
+zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.sender_user_id_..'` ❫\n*⚜ ⁞* بالتاكيد تم الغاء كتمه\n✓'   
 KASPERBOT:srem(KASPER_ID..'mutes'..msg.chat_id_,result.sender_user_id_)   
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
 end
@@ -7635,7 +7635,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ لا استطيع استخر
 return false  end
 if KASPERBOT:sismember(KASPER_ID..'mutes'..msg.chat_id_,user) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء كتمه\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء كتمه\n✓'   
 KASPERmonshn(msg.chat_id_, user, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 KASPERBOT:srem(KASPER_ID..'mutes'..msg.chat_id_,user)   
 else
@@ -7679,11 +7679,11 @@ if data and data.code_ and data.code_ == 6 then
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ لا استطيع استخراج معلوماته*\n💥', 1, 'md') 
 return false  end
 if KASPERBOT:sismember(KASPER_ID..'mutes'..msg.chat_id_,result.id_) then
-zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.id_..'` ❫\n* 🚫 ⁞* تم الغاء كتمه\n✓'   
+zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.id_..'` ❫\n*⚜ ⁞* تم الغاء كتمه\n✓'   
 KASPERBOT:srem(KASPER_ID..'mutes'..msg.chat_id_,result.id_)   
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
 else
-zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.id_..'` ❫\n*🚫 ⁞* بالتاكيد تم الغاء كتمه\n✓'   
+zo = '*🚦 ⁞* العضــو ~⪼ ❪ [@'..data.username_..'] ❫\n*🚸 ⁞ الايـدي ~⪼ ❪* `'..result.id_..'` ❫\n*⚜ ⁞* بالتاكيد تم الغاء كتمه\n✓'   
 KASPERBOT:srem(KASPER_ID..'mutes'..msg.chat_id_,result.id_)   
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1, zo, 1, 'md') 
 end
@@ -8171,7 +8171,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ لا استطيع تقييد
 return false  end
 if not KASPERBOT:sismember(KASPER_ID..'tedmembars'..msg.chat_id_,user) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n📬 ⁞ تـم تقييده من الكروب\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,20)..' \n📬 ⁞ تـم تقييده من الكروب\n✓'   
 KASPERmonshn(msg.chat_id_, user, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..user.."") 
 KASPERBOT:sadd(KASPER_ID..'tedmembars'..msg.chat_id_,user) 
@@ -8209,7 +8209,7 @@ user_id_ = result.sender_user_id_
 },function(arg,data) 
 if KASPERBOT:sismember(KASPER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء تقييده\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء تقييده\n✓'   
 KASPERmonshn(msg.chat_id_, result.sender_user_id_, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.sender_user_id_.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")  
 KASPERBOT:srem(KASPER_ID..'tedmembars'..msg.chat_id_,result.sender_user_id_) 
@@ -8252,7 +8252,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '*🚦 ⁞ لا استطيع استخر
 return false  end
 if KASPERBOT:sismember(KASPER_ID..'tedmembars'..msg.chat_id_,user) then
 if data.username_ == false then
-zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n🚫 ⁞ تم الغاء تقييده\n✓'   
+zo = '🚦 ⁞ العضــو ~⪼  '..CatchName(data.first_name_,15)..' \n⚜ ⁞ تم الغاء تقييده\n✓'   
 KASPERmonshn(msg.chat_id_, user, msg.id_, zo, 16, utf8.len(CatchName(data.first_name_,15)))  
 HTTPS.request("https://api.telegram.org/bot" .. chaneel .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..user.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")  
 KASPERBOT:srem(KASPER_ID..'tedmembars'..msg.chat_id_,user) 
@@ -9046,7 +9046,7 @@ rtpa = 'الادمن'
 elseif da.status_.ID == "ChatMemberStatusMember" then
 rtpa = 'عضو'
 end
-if tonumber(msg.sender_user_id_) == tonumber(373906612) then
+if tonumber(msg.sender_user_id_) == tonumber(267308044) then
 t = 'مطور السورس 🔱'
 elseif tonumber(msg.sender_user_id_) == tonumber(SUDO) then
 t = 'مطور اساسي ✓'
@@ -9094,7 +9094,7 @@ return false
 end 
 if KASPERBOT:get(KASPER_ID.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  end 
 KASPERBOT:del(KASPER_ID.."CHENG:ID"..msg.chat_id_..""..msg.sender_user_id_) 
@@ -9164,12 +9164,12 @@ end
 end
 else
 if result.status_.ID == "UserStatusRecently" and result.profile_photo_ ~= false then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,'🎇 ⁞'..Text_Photo..'\n🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n🖼 ⁞صورك ¤ ('..taha.total_count_..')\n💰 ⁞نقودك ¤ ('..NUMPGAME..')\n📞 ⁞ جهاتك ¤ ('..addmempar..')')       
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, taha.photos_[0].sizes_[1].photo_.persistent_id_,'🎇 ⁞'..Text_Photo..'\n🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n🖼 ⁞صورك ¤ ('..taha.total_count_..')\n💰 ⁞ نقودك ¤ ('..NUMPGAME..')\n📱 ⁞ جهاتك ¤ ('..addmempar..')')       
 else 
 if result.status_.ID == "UserStatusEmpty" and result.profile_photo_ == false then
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n💰 ⁞نقودك ¤ ('..NUMPGAME..')\n📞 ⁞ جهاتك ¤ ('..addmempar..')'..'\n🌇 ⁞ لا يمكنني عرض صورتك لانك قمت بحظر البوت', 1, 'html')   
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n💰 ⁞ نقودك ¤ ('..NUMPGAME..')\n📱 ⁞ جهاتك ¤ ('..addmempar..')'..'\n🌇 ⁞ لا يمكنني عرض صورتك لانك قمت بحظر البوت', 1, 'html')   
 else
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '\n📷 ⁞ ليس لديك صور في حسابك ✓'..'\n🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n💰 ⁞ نقودك ¤ ('..NUMPGAME..')\n📞 ⁞ جهاتك ¤ ('..addmempar..')',1, 'html')      
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, '\n📷 ⁞ ليس لديك صور في حسابك ✓'..'\n🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n💰 ⁞ نقودك ¤ ('..NUMPGAME..')\n📱 ⁞ جهاتك ¤ ('..addmempar..')',1, 'html')      
 end 
 end
 end
@@ -9179,7 +9179,7 @@ local get_id_text = KASPERBOT:get(KASPER_ID.."KLISH:ID")
 if get_id_text then
 KASPER_sendMsg(msg.chat_id_, msg.id_, 1,get_id(msg,taha,get_id_text), 1, 'html')   
 else
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n💰 ⁞نقودك ¤ ('..NUMPGAME..')\n📞 ⁞ جهاتك ¤ ('..addmempar..')', 1, 'html')   
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1,'🔹 ⁞ ايديــك ¤ ('..msg.sender_user_id_..')'..username..'\n🎖 ⁞ موقعـك ¤ ('..get_rtpa(msg.chat_id_,msg.sender_user_id_)..')\n🚦 ⁞ موقع الكروب ¤ ('..rtpa..')\n🎲 ⁞ تفاعـلك ¤ ('..formsgg(msguser)..')\n📧 ⁞ رسائلك ¤ ('..(msguser)..')\n💰 ⁞ نقودك ¤ ('..NUMPGAME..')\n📱 ⁞ جهاتك ¤ ('..addmempar..')', 1, 'html')   
 end
 end
 end
@@ -9201,7 +9201,7 @@ KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🎖 ⁞ تم مسح الصلاحيه
 end
 if KASPERBOT:get(KASPER_ID.."Comd:New"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
-KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*🚫 ⁞ تم الغاء الامر *\n✓", 1, "md") 
+KASPER_sendMsg(msg.chat_id_, msg.id_, 1, "*⚜ ⁞ تم الغاء الامر *\n✓", 1, "md") 
 KASPERBOT:del(KASPER_ID.."Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
 return false  
 end 
@@ -9428,7 +9428,7 @@ if text == 'فتح التثبيت' and tonumber(msg.reply_to_message_id_) > 0 an
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:PINMSG'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع التثبيت عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع التثبيت عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9445,7 +9445,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:PINMSG'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع التثبيت عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع التثبيت عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -9505,7 +9505,7 @@ if text == 'فتح الملصقات' and tonumber(msg.reply_to_message_id_) > 0 
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:STEKR'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الملصقات عنه\n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الملصقات عنه\n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9522,7 +9522,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:STEKR'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الملصقات عنه\n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الملصقات عنه\n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -9582,7 +9582,7 @@ if text == 'فتح الصور' and tonumber(msg.reply_to_message_id_) > 0 and is
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:PHOTO'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الصور عنه\n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الصور عنه\n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9599,7 +9599,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:PHOTO'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الصور عنه\n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الصور عنه\n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -9658,7 +9658,7 @@ if text == 'فتح الاونلاين' and tonumber(msg.reply_to_message_id_) > 
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:INLIN'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الاونلاين عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الاونلاين عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9675,7 +9675,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:INLIN'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الاونلاين عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الاونلاين عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -9734,7 +9734,7 @@ if text == 'فتح التوجيه' and tonumber(msg.reply_to_message_id_) > 0 an
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:FWD'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع التوجيه عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع التوجيه عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9751,7 +9751,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:FWD'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع التوجيه عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع التوجيه عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -9810,7 +9810,7 @@ if text == 'فتح الروابط' and tonumber(msg.reply_to_message_id_) > 0 an
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:LINKS'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الروابط عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الروابط عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9827,7 +9827,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:LINKS'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الروابط عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الروابط عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -9886,7 +9886,7 @@ if text == 'فتح السيلفي' and tonumber(msg.reply_to_message_id_) > 0 an
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:SELPHY'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع السيلفي عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع السيلفي عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9903,7 +9903,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:SELPHY'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع السيلفي عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع السيلفي عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -9962,7 +9962,7 @@ if text == 'فتح الصوت' and tonumber(msg.reply_to_message_id_) > 0 and is
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:VICO'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الصوت عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الصوت عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -9979,7 +9979,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:VICO'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الصوت عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الصوت عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -10038,7 +10038,7 @@ if text == 'فتح الفيديو' and tonumber(msg.reply_to_message_id_) > 0 an
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:VIDEO'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الفيديو عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الفيديو عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -10055,7 +10055,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:VIDEO'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الفيديو عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الفيديو عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -10114,7 +10114,7 @@ if text == 'فتح الماركداون' and tonumber(msg.reply_to_message_id_) 
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:MARKDWN'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الماركداون عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الماركداون عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -10131,7 +10131,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:MARKDWN'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع الماركداون عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع الماركداون عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -10190,7 +10190,7 @@ if text == 'فتح المتحركه' and tonumber(msg.reply_to_message_id_) > 0 
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:GIF'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع المتحركه عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع المتحركه عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -10207,7 +10207,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:GIF'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع المتحركه عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع المتحركه عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -10265,7 +10265,7 @@ if text == 'فتح المعرفات' and tonumber(msg.reply_to_message_id_) > 0 
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:USERNAME'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع المعرفات عنه \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع المعرفات عنه \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -10282,7 +10282,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:USERNAME'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منع المعرفات عنه \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منع المعرفات عنه \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -10340,7 +10340,7 @@ if text == 'فتح الحظر' and tonumber(msg.reply_to_message_id_) > 0 and is
 function by_reply(extra, result, success)   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'LOCK:BAN'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n📬 ⁞ 🚫 ⁞ تم الغاء منعه من ( طرد - حظر ) المستخدمين \n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n📬 ⁞ ⚜ ⁞ تم الغاء منعه من ( طرد - حظر ) المستخدمين \n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -10357,7 +10357,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'LOCK:BAN'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منعه من ( طرد - حظر ) المستخدمين \n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منعه من ( طرد - حظر ) المستخدمين \n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
@@ -10390,7 +10390,7 @@ return false
 end   
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 KASPERBOT:srem(KASPER_ID..'SET:BAN'..msg.chat_id_,result.sender_user_id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منحه صلاحية ( طرد - حظر ) المستخدمين\n',result.sender_user_id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(data.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منحه صلاحية ( طرد - حظر ) المستخدمين\n',result.sender_user_id_)   
 end,nil)   
 end   
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -10423,7 +10423,7 @@ KASPER_send(msg.chat_id_,msg.id_,"*🚦 ⁞ هاذا معرف قناة \n👨�
 return false 
 end      
 KASPERBOT:srem(KASPER_ID..'SET:BAN'..msg.chat_id_,result.id_)     
-sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n🚫 ⁞ تم الغاء منحه صلاحية ( طرد - حظر ) المستخدمين\n',result.id_)   
+sendMention(msg,msg.chat_id_,'🚦 ⁞ العضو ~⪼ {'..CatchNamertprtp(result.type_.user_.first_name_)..'}'..'\n⚜ ⁞ تم الغاء منحه صلاحية ( طرد - حظر ) المستخدمين\n',result.id_)   
 end    
 tdcli_function ({ID = "SearchPublicChat",username_ = username},py_username,nil) 
 end
