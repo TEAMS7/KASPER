@@ -1,6 +1,0 @@
-killall screen
-while(true) do
-rm -fr ../.telegram-cli
-screen ./KASPER.sh
-done
-echo -e "KASPER IS RUN BOT"
