@@ -1438,14 +1438,14 @@ function clerk(extra, result, success)
 local id = tostring(msg.chat_id_)
 if id:match("^(%d+)") then
 if not is_admin(msg.sender_user_id_) then
-local text = kasperdx1:get(KASPER.."textsec")
-if not kasperdx1:get(KASPER.."secretary:"..msg.chat_id_) then
+local text = kasper1:get(KASPER.."textsec")
+if not kasperdx1:get(FAEDER.."secretary:"..msg.chat_id_) then
 if text then
 local text = text:gsub('FIRSTNAME',(result.first_name_ or ''))
 local text = text:gsub('LASTNAME',(result.last_name_ or ''))
 local text = text:gsub('USERNAME',('@'..result.username_ or ''))
 local text = text:gsub('USERID',(result.id_ or ''))
-kasperdx(msg.chat_id_, msg.id_, 1, text, 1, 'md')
+faederdx(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 kasperdx1:setex(KASPER.."secretary:"..msg.chat_id_,86400,true)
 return false
 else
@@ -1488,7 +1488,7 @@ kasperdx1:sadd(KASPER.."bot:groups",msg.chat_id_)
 end
 end
 end
--------------* MSG TYPES *-----------------KASPER
+-------------* MSG S *-----------------KASPER
 if msg.content_ then
 if msg.reply_markup_ and msg.reply_markup_.ID == "ReplyMarkupInlineKeyboard" then
 print("This is [ Inline ]")
@@ -6368,7 +6368,7 @@ if text:match("^[Mm]utelist$") or text:match("^المكتومين$") then
 local hash =  'bot:muted:'..msg.chat_id_
 local list = kasperdx1:smembers(KASPER..hash)
 if kasperdx1:get(KASPER..'lang:gp:'..msg.chat_id_) then
-text = "🚦⁞ List of muted users 🔽 : \n\n"
+text = "🚦⁞ List of muted users ?? : \n\n"
 else
 text = "🚦⁞ قائمه المكتومين 🔽 : \n\n"
 end
@@ -8060,7 +8060,7 @@ local cti = msg.chat_id_
 local hash = (KASPER..'bot:freewords:')
 if not kasperdx1:hget(hash, name)then
 if kasperdx1:get(KASPER..'lang:gp:'..msg.chat_id_) then
-kasperdx(msg.chat_id_, msg.id_, 1, "🚦⁞ Word [ "..name.." ]\n🚦⁞ is not in filtered all ☑️", 1, 'html')
+kasperdx(msg.chat_id_, msg.id_, 1, "??⁞ Word [ "..name.." ]\n🚦⁞ is not in filtered all ☑️", 1, 'html')
 else
 kasperdx(msg.chat_id_, msg.id_, 1, "🚦⁞ الكلمه [ "..name.." ]\n🚦⁞ هي ليست ممنوعه عام ☑️", 1, 'html')
 end
