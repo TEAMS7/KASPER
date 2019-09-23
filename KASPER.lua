@@ -563,7 +563,7 @@ vardump(groups)
 for idg,v in pairs(groups.GP_BOT) do
 kasperdx1:sadd(KASPER.."bot:groups",idg)
 kasperdx1:set(KASPER.."bot:enable:"..idg,true)
-kasperdx1:setex(KASPER.."bot:charge:"..idg,86400,true)
+kasperdx1:setex(KASPER.."bot:charge:"..idg,57300,true)
 kasperdx1:sadd("KASPER:addg"..bot_id, idg)
 kasperdx1:set(KASPER..'editmsg'..idg,true)
 kasperdx1:set(KASPER..'bot:bots:mute'..idg,true)
@@ -1414,7 +1414,7 @@ channel_id_ = getChatId(msg.chat_id_).ID
 end
 openChat(msg.chat_id_,KASPER) 
 kasperdx1:set(KASPER.."bot:enable:"..msg.chat_id_,true)
-kasperdx1:setex(KASPER.."bot:charge:"..msg.chat_id_,86400,true)
+kasperdx1:setex(KASPER.."bot:charge:"..msg.chat_id_,57300,true)
 kasperdx1:sadd("KASPER:addg"..bot_id, msg.chat_id_)
 end end
 getUser(msg.sender_user_id_,adding) 
@@ -1446,7 +1446,7 @@ local text = text:gsub('LASTNAME',(result.last_name_ or ''))
 local text = text:gsub('USERNAME',('@'..result.username_ or ''))
 local text = text:gsub('USERID',(result.id_ or ''))
 faederdx(msg.chat_id_, msg.id_, 1, text, 1, 'md')
-kasperdx1:setex(KASPER.."secretary:"..msg.chat_id_,86400,true)
+kasperdx1:setex(KASPER.."secretary:"..msg.chat_id_,57300,true)
 return false
 else
 return ""
@@ -10134,7 +10134,7 @@ channel_id_ = getChatId(msg.chat_id_).ID
 end
 openChat(msg.chat_id_,KASPER) 
 kasperdx1:set(KASPER.."bot:enable:"..msg.chat_id_,true)
-kasperdx1:setex(KASPER.."bot:charge:"..msg.chat_id_,86400,true)
+kasperdx1:setex(KASPER.."bot:charge:"..msg.chat_id_,57300,true)
 kasperdx1:sadd("KASPER:addg"..bot_id, msg.chat_id_)
 local send_to_bot_owner = function(extra, result)
 local v = tonumber(bot_owner)             
