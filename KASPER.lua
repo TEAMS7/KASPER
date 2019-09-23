@@ -10845,7 +10845,7 @@ end
 if text == "تحديث السورس" and is_leader(msg) then 
 kasperdx(msg.chat_id_, msg.id_, 1, '🚦⁞ جاري تحديث السورس الى الاصدار الجديد •', 1, 'md') 
 os.execute('rm -rf KASPER.lua') 
-os.execute('wget https://raw.githubusercontent.com/TEAMKASPER/KASPER/master/KASPER.lua') 
+os.execute('wget https://raw.githubusercontent.com/TEAMS7/KASPER/master/KASPER.lua') 
 kasperdx(msg.chat_id_, msg.id_, 1, '🚦⁞ تم تحديث السورس اكتشف المميزات الجديده الان •', 1, 'md') 
 dofile('KASPER.lua') 
 io.popen("rm -rf ~/.telegram-cli/data/audio/*")
