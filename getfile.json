@@ -4,7 +4,11 @@
 
     "plugins_": {
 
-        "JSON_BOT.lua":"VEERCLI"
+        "games.lua":"STORMCLI",
+
+        "ZHRFA.lua":"STORMCLI",
+
+        "JSON_BOT.lua":"STORMCLI"
 
     }
 
