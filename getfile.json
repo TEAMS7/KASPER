@@ -1,0 +1,11 @@
+{
+
+    "result": true,
+
+    "plugins_": {
+
+        "JSON_BOT.lua":"VEERCLI"
+
+    }
+
+}
